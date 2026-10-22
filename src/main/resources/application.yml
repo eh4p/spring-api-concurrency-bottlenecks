@@ -1,0 +1,48 @@
+server:
+  address: 127.0.0.1
+  port: 8080
+  tomcat:
+    # Demo configuration only — not production sizing guidance.
+    threads:
+      max: 10
+      min-spare: 2
+    mbeanregistry:
+      enabled: true
+spring:
+  application:
+    name: spring-api-concurrency-bottlenecks
+  threads:
+    virtual:
+      # Keep servlet workers on platform threads to preserve the violation.
+      enabled: false
+  datasource:
+    url: jdbc:h2:mem:concurrency;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+    hikari:
+      pool-name: demo-pool
+      # Demo configuration only — not production sizing guidance.
+      maximum-pool-size: 5
+      minimum-idle: 5
+      connection-timeout: 5000
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 100
+        order_inserts: true
+  mvc:
+    async:
+      request-timeout: 30s
+management:
+  server:
+    # Separate connector keeps observation possible when API workers are busy.
+    address: 127.0.0.1
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics

@@ -1,0 +1,2808 @@
+{
+  "date": "2026-10-08",
+  "timezone": "Africa/Cairo",
+  "environment": {
+    "java": "25.0.4.1",
+    "maven": "3.9.16",
+    "springBoot": "4.1.1",
+    "tomcat": "11.0.24",
+    "h2": "2.4.240",
+    "os": "Linux x86_64",
+    "jvmReportedProcessors": 8,
+    "normalTieredCompilation": true
+  },
+  "method": {
+    "warmupRequestsPerImplementation": 10,
+    "baselineRequests": 3,
+    "concurrentAttempts": 3,
+    "requestsPerAttempt": 80,
+    "concurrency": 40,
+    "latencyPercentiles": "nearest rank across all HTTP responses",
+    "queueRunsFullyDrained": true,
+    "diagnosticPollingIncluded": true
+  },
+  "records": [
+    {
+      "scenario": "request-threads",
+      "implementation": "violation",
+      "run": "baseline",
+      "http": {
+        "method": "GET",
+        "path": "/api/v1/concurrency/request-threads/violation",
+        "requests": 3,
+        "concurrency": 1,
+        "durationSeconds": 0.9243,
+        "successful": 3,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 3
+        },
+        "responsesPerSecond": 3.25,
+        "successfulResponsesPerSecond": 3.25,
+        "latencyMs": {
+          "mean": 255.164,
+          "p50": 253.364,
+          "p95": 258.795,
+          "p99": 258.795,
+          "min": 253.332,
+          "max": 258.795
+        },
+        "distinctSuccessfulResults": [
+          12
+        ]
+      },
+      "sampleCount": 6,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 2.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.22875816993464052,
+        "system.cpu.usage": 0.9915966386554622,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.2739519370006747
+    },
+    {
+      "scenario": "request-threads",
+      "implementation": "violation",
+      "run": "1",
+      "http": {
+        "method": "GET",
+        "path": "/api/v1/concurrency/request-threads/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 2.1296,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 37.57,
+        "successfulResponsesPerSecond": 37.57,
+        "latencyMs": {
+          "mean": 781.727,
+          "p50": 919.577,
+          "p95": 994.75,
+          "p99": 998.926,
+          "min": 254.495,
+          "max": 998.926
+        },
+        "distinctSuccessfulResults": [
+          12
+        ]
+      },
+      "sampleCount": 13,
+      "peaks": {
+        "tomcat.threads.busy": 10.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.19318181818181818,
+        "system.cpu.usage": 0.8093023255813954,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 2.5056462330012437
+    },
+    {
+      "scenario": "request-threads",
+      "implementation": "violation",
+      "run": "2",
+      "http": {
+        "method": "GET",
+        "path": "/api/v1/concurrency/request-threads/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 2.1771,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 36.75,
+        "successfulResponsesPerSecond": 36.75,
+        "latencyMs": {
+          "mean": 759.775,
+          "p50": 900.814,
+          "p95": 991.679,
+          "p99": 996.949,
+          "min": 253.752,
+          "max": 996.949
+        },
+        "distinctSuccessfulResults": [
+          12
+        ]
+      },
+      "sampleCount": 12,
+      "peaks": {
+        "tomcat.threads.busy": 10.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.19642857142857142,
+        "system.cpu.usage": 0.8352272727272727,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 2.5149694470001123
+    },
+    {
+      "scenario": "request-threads",
+      "implementation": "violation",
+      "run": "3",
+      "http": {
+        "method": "GET",
+        "path": "/api/v1/concurrency/request-threads/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 2.1191,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 37.75,
+        "successfulResponsesPerSecond": 37.75,
+        "latencyMs": {
+          "mean": 754.927,
+          "p50": 902.601,
+          "p95": 993.158,
+          "p99": 998.261,
+          "min": 252.666,
+          "max": 998.261
+        },
+        "distinctSuccessfulResults": [
+          12
+        ]
+      },
+      "sampleCount": 12,
+      "peaks": {
+        "tomcat.threads.busy": 10.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.22222222222222224,
+        "system.cpu.usage": 0.8860103626943006,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 2.3868056629999046
+    },
+    {
+      "scenario": "request-threads",
+      "implementation": "solution",
+      "run": "baseline",
+      "http": {
+        "method": "GET",
+        "path": "/api/v1/concurrency/request-threads/solution",
+        "requests": 3,
+        "concurrency": 1,
+        "durationSeconds": 0.8397,
+        "successful": 3,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 3
+        },
+        "responsesPerSecond": 3.57,
+        "successfulResponsesPerSecond": 3.57,
+        "latencyMs": {
+          "mean": 254.659,
+          "p50": 254.238,
+          "p95": 255.857,
+          "p99": 255.857,
+          "min": 253.882,
+          "max": 255.857
+        },
+        "distinctSuccessfulResults": [
+          12
+        ]
+      },
+      "sampleCount": 6,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 2.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.3114754098360656,
+        "system.cpu.usage": 0.7622377622377623,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.0382611750010255
+    },
+    {
+      "scenario": "request-threads",
+      "implementation": "solution",
+      "run": "1",
+      "http": {
+        "method": "GET",
+        "path": "/api/v1/concurrency/request-threads/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.9291,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 86.11,
+        "successfulResponsesPerSecond": 86.11,
+        "latencyMs": {
+          "mean": 278.466,
+          "p50": 270.188,
+          "p95": 319.784,
+          "p99": 341.738,
+          "min": 255.237,
+          "max": 341.738
+        },
+        "distinctSuccessfulResults": [
+          12
+        ]
+      },
+      "sampleCount": 5,
+      "peaks": {
+        "tomcat.threads.busy": 2.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.2191011235955056,
+        "system.cpu.usage": 0.9452554744525548,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.2300749200003338
+    },
+    {
+      "scenario": "request-threads",
+      "implementation": "solution",
+      "run": "2",
+      "http": {
+        "method": "GET",
+        "path": "/api/v1/concurrency/request-threads/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.8492,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 94.2,
+        "successfulResponsesPerSecond": 94.2,
+        "latencyMs": {
+          "mean": 264.725,
+          "p50": 261.63,
+          "p95": 287.349,
+          "p99": 292.259,
+          "min": 253.531,
+          "max": 292.259
+        },
+        "distinctSuccessfulResults": [
+          12
+        ]
+      },
+      "sampleCount": 6,
+      "peaks": {
+        "tomcat.threads.busy": 3.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.2391304347826087,
+        "system.cpu.usage": 0.89937106918239,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.1309009920005337
+    },
+    {
+      "scenario": "request-threads",
+      "implementation": "solution",
+      "run": "3",
+      "http": {
+        "method": "GET",
+        "path": "/api/v1/concurrency/request-threads/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.8131,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 98.39,
+        "successfulResponsesPerSecond": 98.39,
+        "latencyMs": {
+          "mean": 261.259,
+          "p50": 259.724,
+          "p95": 271.506,
+          "p99": 290.985,
+          "min": 253.456,
+          "max": 290.985
+        },
+        "distinctSuccessfulResults": [
+          12
+        ]
+      },
+      "sampleCount": 5,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.23699421965317918,
+        "system.cpu.usage": 0.9189189189189189,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.1813723539999046
+    },
+    {
+      "scenario": "db-pool",
+      "implementation": "violation",
+      "run": "baseline",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/db-pool/violation",
+        "requests": 3,
+        "concurrency": 1,
+        "durationSeconds": 0.8828,
+        "successful": 3,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 3
+        },
+        "responsesPerSecond": 3.4,
+        "successfulResponsesPerSecond": 3.4,
+        "latencyMs": {
+          "mean": 258.815,
+          "p50": 258.664,
+          "p95": 259.22,
+          "p99": 259.22,
+          "min": 258.561,
+          "max": 259.22
+        },
+        "observedRiskScores": [
+          12
+        ],
+        "observedAuthorizationStatuses": [
+          "AUTHORIZED"
+        ]
+      },
+      "sampleCount": 7,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.14285714285714285,
+        "system.cpu.usage": 0.6419753086419753,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 3.0,
+          "totalSeconds": 0.00010744500000000007,
+          "meanMs": 0.03581500000000002
+        },
+        "hikaricp.connections.usage": {
+          "count": 3.0,
+          "totalSeconds": 0.758,
+          "meanMs": 252.66666666666666
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.2070860639996681
+    },
+    {
+      "scenario": "db-pool",
+      "implementation": "violation",
+      "run": "1",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/db-pool/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 4.2209,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 18.95,
+        "successfulResponsesPerSecond": 18.95,
+        "latencyMs": {
+          "mean": 1542.975,
+          "p50": 1903.573,
+          "p95": 2046.136,
+          "p99": 3155.7,
+          "min": 261.539,
+          "max": 3155.7
+        },
+        "observedRiskScores": [
+          12
+        ],
+        "observedAuthorizationStatuses": [
+          "AUTHORIZED"
+        ]
+      },
+      "sampleCount": 26,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.2975206611570248,
+        "system.cpu.usage": 0.9783783783783784,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 5.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 34.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 80.0,
+          "totalSeconds": 102.193019726,
+          "meanMs": 1277.412746575
+        },
+        "hikaricp.connections.usage": {
+          "count": 80.0,
+          "totalSeconds": 20.49,
+          "meanMs": 256.125
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 4.686205387999507
+    },
+    {
+      "scenario": "db-pool",
+      "implementation": "violation",
+      "run": "2",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/db-pool/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 4.1584,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 19.24,
+        "successfulResponsesPerSecond": 19.24,
+        "latencyMs": {
+          "mean": 1538.312,
+          "p50": 1944.457,
+          "p95": 2007.405,
+          "p99": 2034.816,
+          "min": 262.774,
+          "max": 2034.816
+        },
+        "observedRiskScores": [
+          12
+        ],
+        "observedAuthorizationStatuses": [
+          "AUTHORIZED"
+        ]
+      },
+      "sampleCount": 24,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.37398373983739835,
+        "system.cpu.usage": 0.8366013071895424,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 5.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 35.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 80.0,
+          "totalSeconds": 102.027362347,
+          "meanMs": 1275.3420293374998
+        },
+        "hikaricp.connections.usage": {
+          "count": 80.0,
+          "totalSeconds": 20.345999999999997,
+          "meanMs": 254.32499999999996
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 4.29902862400013
+    },
+    {
+      "scenario": "db-pool",
+      "implementation": "violation",
+      "run": "3",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/db-pool/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 4.1546,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 19.26,
+        "successfulResponsesPerSecond": 19.26,
+        "latencyMs": {
+          "mean": 1534.58,
+          "p50": 1923.996,
+          "p95": 2008.345,
+          "p99": 2036.87,
+          "min": 258.653,
+          "max": 2036.87
+        },
+        "observedRiskScores": [
+          12
+        ],
+        "observedAuthorizationStatuses": [
+          "AUTHORIZED"
+        ]
+      },
+      "sampleCount": 26,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.5172413793103449,
+        "system.cpu.usage": 0.9282051282051282,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 5.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 35.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 80.0,
+          "totalSeconds": 101.80230488299998,
+          "meanMs": 1272.5288110374997
+        },
+        "hikaricp.connections.usage": {
+          "count": 80.0,
+          "totalSeconds": 20.270000000000003,
+          "meanMs": 253.37500000000006
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 4.5257000740002695
+    },
+    {
+      "scenario": "db-pool",
+      "implementation": "solution",
+      "run": "baseline",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/db-pool/solution",
+        "requests": 3,
+        "concurrency": 1,
+        "durationSeconds": 0.8966,
+        "successful": 3,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 3
+        },
+        "responsesPerSecond": 3.35,
+        "successfulResponsesPerSecond": 3.35,
+        "latencyMs": {
+          "mean": 258.89,
+          "p50": 258.653,
+          "p95": 259.549,
+          "p99": 259.549,
+          "min": 258.467,
+          "max": 259.549
+        },
+        "observedRiskScores": [
+          12
+        ],
+        "observedAuthorizationStatuses": [
+          "AUTHORIZED"
+        ]
+      },
+      "sampleCount": 7,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.17073170731707318,
+        "system.cpu.usage": 0.5333333333333333,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 3.0,
+          "totalSeconds": 0.00013792200000000007,
+          "meanMs": 0.04597400000000002
+        },
+        "hikaricp.connections.usage": {
+          "count": 3.0,
+          "totalSeconds": 0.009999999999999787,
+          "meanMs": 3.3333333333332624
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.3213415789996361
+    },
+    {
+      "scenario": "db-pool",
+      "implementation": "solution",
+      "run": "1",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/db-pool/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.9544,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 83.82,
+        "successfulResponsesPerSecond": 83.82,
+        "latencyMs": {
+          "mean": 291.664,
+          "p50": 271.357,
+          "p95": 363.265,
+          "p99": 386.471,
+          "min": 255.085,
+          "max": 386.471
+        },
+        "observedRiskScores": [
+          12
+        ],
+        "observedAuthorizationStatuses": [
+          "AUTHORIZED"
+        ]
+      },
+      "sampleCount": 6,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.41333333333333333,
+        "system.cpu.usage": 0.8709677419354839,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 5.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 4.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 80.0,
+          "totalSeconds": 0.8632406899999978,
+          "meanMs": 10.790508624999973
+        },
+        "hikaricp.connections.usage": {
+          "count": 80.0,
+          "totalSeconds": 0.9380000000000024,
+          "meanMs": 11.72500000000003
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.3127432520013826
+    },
+    {
+      "scenario": "db-pool",
+      "implementation": "solution",
+      "run": "2",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/db-pool/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.8421,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 95.0,
+        "successfulResponsesPerSecond": 95.0,
+        "latencyMs": {
+          "mean": 269.544,
+          "p50": 263.446,
+          "p95": 294.708,
+          "p99": 313.268,
+          "min": 254.343,
+          "max": 313.268
+        },
+        "observedRiskScores": [
+          12
+        ],
+        "observedAuthorizationStatuses": [
+          "AUTHORIZED"
+        ]
+      },
+      "sampleCount": 6,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.2866666666666666,
+        "system.cpu.usage": 0.934640522875817,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 80.0,
+          "totalSeconds": 0.02064080900001386,
+          "meanMs": 0.25801011250017325
+        },
+        "hikaricp.connections.usage": {
+          "count": 80.0,
+          "totalSeconds": 0.3100000000000023,
+          "meanMs": 3.8750000000000284
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.1249744839988125
+    },
+    {
+      "scenario": "db-pool",
+      "implementation": "solution",
+      "run": "3",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/db-pool/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.797,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 100.37,
+        "successfulResponsesPerSecond": 100.37,
+        "latencyMs": {
+          "mean": 266.289,
+          "p50": 261.637,
+          "p95": 289.074,
+          "p99": 328.181,
+          "min": 253.511,
+          "max": 328.181
+        },
+        "observedRiskScores": [
+          12
+        ],
+        "observedAuthorizationStatuses": [
+          "AUTHORIZED"
+        ]
+      },
+      "sampleCount": 6,
+      "peaks": {
+        "tomcat.threads.busy": 2.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.2,
+        "system.cpu.usage": 0.8457142857142858,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 80.0,
+          "totalSeconds": 0.0021801130000085323,
+          "meanMs": 0.027251412500106653
+        },
+        "hikaricp.connections.usage": {
+          "count": 80.0,
+          "totalSeconds": 0.2539999999999907,
+          "meanMs": 3.1749999999998835
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.1800851519983553
+    },
+    {
+      "scenario": "cpu",
+      "implementation": "violation",
+      "run": "baseline",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/cpu/violation",
+        "requests": 3,
+        "concurrency": 1,
+        "durationSeconds": 1.7404,
+        "successful": 3,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 3
+        },
+        "responsesPerSecond": 1.72,
+        "successfulResponsesPerSecond": 1.72,
+        "latencyMs": {
+          "mean": 557.192,
+          "p50": 511.91,
+          "p95": 686.321,
+          "p99": 686.321,
+          "min": 473.344,
+          "max": 686.321
+        },
+        "distinctSuccessfulResults": [
+          {
+            "duplicatePairs": 5000,
+            "transferCount": 10000
+          }
+        ]
+      },
+      "sampleCount": 14,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.15827338129496404,
+        "system.cpu.usage": 0.9037037037037037,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 2.070002486998419
+    },
+    {
+      "scenario": "cpu",
+      "implementation": "violation",
+      "run": "1",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/cpu/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 7.3261,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 10.92,
+        "successfulResponsesPerSecond": 10.92,
+        "latencyMs": {
+          "mean": 2857.189,
+          "p50": 2338.604,
+          "p95": 5480.153,
+          "p99": 5965.442,
+          "min": 739.618,
+          "max": 5965.442
+        },
+        "distinctSuccessfulResults": [
+          {
+            "duplicatePairs": 5000,
+            "transferCount": 10000
+          }
+        ]
+      },
+      "sampleCount": 40,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.8231292517006803,
+        "system.cpu.usage": 1.0,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 7.476770597000723
+    },
+    {
+      "scenario": "cpu",
+      "implementation": "violation",
+      "run": "2",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/cpu/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 7.7201,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 10.36,
+        "successfulResponsesPerSecond": 10.36,
+        "latencyMs": {
+          "mean": 3060.75,
+          "p50": 3173.755,
+          "p95": 4694.004,
+          "p99": 6169.614,
+          "min": 626.355,
+          "max": 6169.614
+        },
+        "distinctSuccessfulResults": [
+          {
+            "duplicatePairs": 5000,
+            "transferCount": 10000
+          }
+        ]
+      },
+      "sampleCount": 42,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.8780487804878049,
+        "system.cpu.usage": 1.0,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 7.995789399999921
+    },
+    {
+      "scenario": "cpu",
+      "implementation": "violation",
+      "run": "3",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/cpu/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 6.508,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 12.29,
+        "successfulResponsesPerSecond": 12.29,
+        "latencyMs": {
+          "mean": 2520.116,
+          "p50": 2363.927,
+          "p95": 4117.384,
+          "p99": 4803.223,
+          "min": 637.905,
+          "max": 4803.223
+        },
+        "distinctSuccessfulResults": [
+          {
+            "duplicatePairs": 5000,
+            "transferCount": 10000
+          }
+        ]
+      },
+      "sampleCount": 36,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.8852459016393442,
+        "system.cpu.usage": 1.0,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 6.698315106999871
+    },
+    {
+      "scenario": "cpu",
+      "implementation": "solution",
+      "run": "baseline",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/cpu/solution",
+        "requests": 3,
+        "concurrency": 1,
+        "durationSeconds": 0.0803,
+        "successful": 3,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 3
+        },
+        "responsesPerSecond": 37.38,
+        "successfulResponsesPerSecond": 37.38,
+        "latencyMs": {
+          "mean": 4.235,
+          "p50": 4.519,
+          "p95": 4.662,
+          "p99": 4.662,
+          "min": 3.525,
+          "max": 4.662
+        },
+        "distinctSuccessfulResults": [
+          {
+            "duplicatePairs": 5000,
+            "transferCount": 10000
+          }
+        ]
+      },
+      "sampleCount": 3,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.13761467889908258,
+        "system.cpu.usage": 0.45871559633027525,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 0.42201837500033434
+    },
+    {
+      "scenario": "cpu",
+      "implementation": "solution",
+      "run": "1",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/cpu/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.3682,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 217.27,
+        "successfulResponsesPerSecond": 217.27,
+        "latencyMs": {
+          "mean": 13.588,
+          "p50": 11.788,
+          "p95": 29.661,
+          "p99": 37.06,
+          "min": 3.668,
+          "max": 37.06
+        },
+        "distinctSuccessfulResults": [
+          {
+            "duplicatePairs": 5000,
+            "transferCount": 10000
+          }
+        ]
+      },
+      "sampleCount": 3,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.2198952879581152,
+        "system.cpu.usage": 0.971563981042654,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 0.5971654500008299
+    },
+    {
+      "scenario": "cpu",
+      "implementation": "solution",
+      "run": "2",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/cpu/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.4193,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 190.8,
+        "successfulResponsesPerSecond": 190.8,
+        "latencyMs": {
+          "mean": 17.449,
+          "p50": 14.352,
+          "p95": 31.954,
+          "p99": 59.608,
+          "min": 3.795,
+          "max": 59.608
+        },
+        "distinctSuccessfulResults": [
+          {
+            "duplicatePairs": 5000,
+            "transferCount": 10000
+          }
+        ]
+      },
+      "sampleCount": 3,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.18502202643171808,
+        "system.cpu.usage": 0.9719626168224298,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 0.6401400290014863
+    },
+    {
+      "scenario": "cpu",
+      "implementation": "solution",
+      "run": "3",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/cpu/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.4344,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "200": 80
+        },
+        "responsesPerSecond": 184.14,
+        "successfulResponsesPerSecond": 184.14,
+        "latencyMs": {
+          "mean": 19.598,
+          "p50": 17.136,
+          "p95": 34.799,
+          "p99": 47.882,
+          "min": 5.209,
+          "max": 47.882
+        },
+        "distinctSuccessfulResults": [
+          {
+            "duplicatePairs": 5000,
+            "transferCount": 10000
+          }
+        ]
+      },
+      "sampleCount": 3,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.07653061224489796,
+        "system.cpu.usage": 0.9757281553398058,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 0.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 0.6246659759999602
+    },
+    {
+      "scenario": "work-queue",
+      "implementation": "violation",
+      "run": "baseline",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/work-queue/violation",
+        "requests": 3,
+        "concurrency": 1,
+        "durationSeconds": 0.0647,
+        "successful": 3,
+        "failedOrRejected": 0,
+        "statuses": {
+          "202": 3
+        },
+        "responsesPerSecond": 46.36,
+        "successfulResponsesPerSecond": 46.36,
+        "latencyMs": {
+          "mean": 1.281,
+          "p50": 1.248,
+          "p95": 1.48,
+          "p99": 1.48,
+          "min": 1.115,
+          "max": 1.48
+        },
+        "distinctSuccessfulResults": []
+      },
+      "sampleCount": 9,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.2815533980582524,
+        "system.cpu.usage": 0.8716216216216216,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 2.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 1.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 13.0,
+        "demo.queue.completed|solution": 0.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 3.0,
+          "totalSeconds": 2.0691775229999987,
+          "meanMs": 689.7258409999995
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 3.0,
+          "totalSeconds": 0.45496259599999966,
+          "meanMs": 151.65419866666656
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 1.3145042239993927,
+      "queueAfterDrain": {
+        "activeWorkers": 0,
+        "poolSize": 2,
+        "queueDepth": 0,
+        "completedTasks": 13,
+        "rejectedTasks": 0,
+        "failedTasks": 0,
+        "lastCompleted": {
+          "fingerprint": 1292498,
+          "queueWaitMs": 454.798078,
+          "completionMs": 1070.799023
+        }
+      },
+      "newRejections": 0.0
+    },
+    {
+      "scenario": "work-queue",
+      "implementation": "violation",
+      "run": "1",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/work-queue/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.403,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "202": 80
+        },
+        "responsesPerSecond": 198.52,
+        "successfulResponsesPerSecond": 198.52,
+        "latencyMs": {
+          "mean": 10.131,
+          "p50": 8.112,
+          "p95": 23.118,
+          "p99": 39.202,
+          "min": 1.778,
+          "max": 39.202
+        },
+        "distinctSuccessfulResults": []
+      },
+      "sampleCount": 132,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.4466019417475728,
+        "system.cpu.usage": 0.9766081871345029,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 2.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 78.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 93.0,
+        "demo.queue.completed|solution": 13.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 80.0,
+          "totalSeconds": 730.237646987,
+          "meanMs": 9127.970587337499
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 80.0,
+          "totalSeconds": 696.000300452,
+          "meanMs": 8700.00375565
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 17.28322912600015,
+      "queueAfterDrain": {
+        "activeWorkers": 0,
+        "poolSize": 2,
+        "queueDepth": 0,
+        "completedTasks": 93,
+        "rejectedTasks": 0,
+        "failedTasks": 0,
+        "lastCompleted": {
+          "fingerprint": 1292498,
+          "queueWaitMs": 16420.253388,
+          "completionMs": 16798.7411
+        }
+      },
+      "newRejections": 0.0
+    },
+    {
+      "scenario": "work-queue",
+      "implementation": "violation",
+      "run": "2",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/work-queue/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.4536,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "202": 80
+        },
+        "responsesPerSecond": 176.35,
+        "successfulResponsesPerSecond": 176.35,
+        "latencyMs": {
+          "mean": 9.544,
+          "p50": 7.129,
+          "p95": 25.298,
+          "p99": 32.554,
+          "min": 1.388,
+          "max": 32.554
+        },
+        "distinctSuccessfulResults": []
+      },
+      "sampleCount": 134,
+      "peaks": {
+        "tomcat.threads.busy": 1.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.41509433962264153,
+        "system.cpu.usage": 0.9887005649717514,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 2.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 78.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 173.0,
+        "demo.queue.completed|solution": 23.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 80.0,
+          "totalSeconds": 733.3154097470001,
+          "meanMs": 9166.442621837501
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 80.0,
+          "totalSeconds": 697.406536576,
+          "meanMs": 8717.5817072
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 18.09490404600001,
+      "queueAfterDrain": {
+        "activeWorkers": 0,
+        "poolSize": 2,
+        "queueDepth": 0,
+        "completedTasks": 173,
+        "rejectedTasks": 0,
+        "failedTasks": 0,
+        "lastCompleted": {
+          "fingerprint": 1292498,
+          "queueWaitMs": 17136.419805,
+          "completionMs": 17577.960811
+        }
+      },
+      "newRejections": 0.0
+    },
+    {
+      "scenario": "work-queue",
+      "implementation": "violation",
+      "run": "3",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/work-queue/violation",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.4176,
+        "successful": 80,
+        "failedOrRejected": 0,
+        "statuses": {
+          "202": 80
+        },
+        "responsesPerSecond": 191.59,
+        "successfulResponsesPerSecond": 191.59,
+        "latencyMs": {
+          "mean": 9.406,
+          "p50": 8.149,
+          "p95": 21.654,
+          "p99": 36.083,
+          "min": 1.3,
+          "max": 36.083
+        },
+        "distinctSuccessfulResults": []
+      },
+      "sampleCount": 138,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.4,
+        "system.cpu.usage": 0.9828767123287672,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 2.0,
+        "demo.queue.active|solution": 0.0,
+        "demo.queue.depth|violation": 78.0,
+        "demo.queue.depth|solution": 0.0,
+        "demo.queue.completed|violation": 253.0,
+        "demo.queue.completed|solution": 33.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 80.0,
+          "totalSeconds": 753.9316760089998,
+          "meanMs": 9424.145950112497
+        },
+        "demo.queue.completion|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|violation": {
+          "count": 80.0,
+          "totalSeconds": 717.2723122189998,
+          "meanMs": 8965.903902737498
+        },
+        "demo.queue.waiting|solution": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        }
+      },
+      "captureSecondsIncludingDrain": 18.77440275399931,
+      "queueAfterDrain": {
+        "activeWorkers": 0,
+        "poolSize": 2,
+        "queueDepth": 0,
+        "completedTasks": 253,
+        "rejectedTasks": 0,
+        "failedTasks": 0,
+        "lastCompleted": {
+          "fingerprint": 1292498,
+          "queueWaitMs": 17607.641284,
+          "completionMs": 18120.227646
+        }
+      },
+      "newRejections": 0.0
+    },
+    {
+      "scenario": "work-queue",
+      "implementation": "solution",
+      "run": "baseline",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/work-queue/solution",
+        "requests": 3,
+        "concurrency": 1,
+        "durationSeconds": 0.0591,
+        "successful": 3,
+        "failedOrRejected": 0,
+        "statuses": {
+          "202": 3
+        },
+        "responsesPerSecond": 50.73,
+        "successfulResponsesPerSecond": 50.73,
+        "latencyMs": {
+          "mean": 1.141,
+          "p50": 1.134,
+          "p95": 1.281,
+          "p99": 1.281,
+          "min": 1.008,
+          "max": 1.281
+        },
+        "distinctSuccessfulResults": []
+      },
+      "sampleCount": 9,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.33858267716535434,
+        "system.cpu.usage": 0.6377952755905512,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 2.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 1.0,
+        "demo.queue.completed|violation": 13.0,
+        "demo.queue.completed|solution": 13.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 3.0,
+          "totalSeconds": 1.9199423079999995,
+          "meanMs": 639.9807693333331
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 3.0,
+          "totalSeconds": 0.4585433899999991,
+          "meanMs": 152.84779666666637
+        }
+      },
+      "captureSecondsIncludingDrain": 1.2480294559991307,
+      "queueAfterDrain": {
+        "activeWorkers": 0,
+        "poolSize": 2,
+        "queueDepth": 0,
+        "completedTasks": 13,
+        "rejectedTasks": 0,
+        "failedTasks": 0,
+        "lastCompleted": {
+          "fingerprint": 1292498,
+          "queueWaitMs": 458.429209,
+          "completionMs": 950.727936
+        }
+      },
+      "newRejections": 0.0
+    },
+    {
+      "scenario": "work-queue",
+      "implementation": "solution",
+      "run": "1",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/work-queue/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.4124,
+        "successful": 10,
+        "failedOrRejected": 70,
+        "statuses": {
+          "202": 10,
+          "503": 70
+        },
+        "responsesPerSecond": 193.97,
+        "successfulResponsesPerSecond": 24.25,
+        "latencyMs": {
+          "mean": 29.712,
+          "p50": 21.924,
+          "p95": 94.198,
+          "p99": 122.67,
+          "min": 2.082,
+          "max": 122.67
+        },
+        "distinctSuccessfulResults": []
+      },
+      "sampleCount": 21,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.48322147651006714,
+        "system.cpu.usage": 0.9806763285024155,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 2.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 8.0,
+        "demo.queue.completed|violation": 93.0,
+        "demo.queue.completed|solution": 23.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 10.0,
+          "totalSeconds": 17.974509236,
+          "meanMs": 1797.4509236
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 10.0,
+          "totalSeconds": 12.146195072,
+          "meanMs": 1214.6195071999998
+        }
+      },
+      "captureSecondsIncludingDrain": 3.313725968999279,
+      "queueAfterDrain": {
+        "activeWorkers": 0,
+        "poolSize": 2,
+        "queueDepth": 0,
+        "completedTasks": 23,
+        "rejectedTasks": 70,
+        "failedTasks": 0,
+        "lastCompleted": {
+          "fingerprint": 1292498,
+          "queueWaitMs": 2417.425373,
+          "completionMs": 3025.482602
+        }
+      },
+      "newRejections": 70.0
+    },
+    {
+      "scenario": "work-queue",
+      "implementation": "solution",
+      "run": "2",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/work-queue/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.4016,
+        "successful": 10,
+        "failedOrRejected": 70,
+        "statuses": {
+          "202": 10,
+          "503": 70
+        },
+        "responsesPerSecond": 199.2,
+        "successfulResponsesPerSecond": 24.9,
+        "latencyMs": {
+          "mean": 11.973,
+          "p50": 9.863,
+          "p95": 25.469,
+          "p99": 49.773,
+          "min": 1.499,
+          "max": 49.773
+        },
+        "distinctSuccessfulResults": []
+      },
+      "sampleCount": 19,
+      "peaks": {
+        "tomcat.threads.busy": 2.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.2843137254901961,
+        "system.cpu.usage": 0.9829787234042553,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 2.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 8.0,
+        "demo.queue.completed|violation": 173.0,
+        "demo.queue.completed|solution": 33.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 10.0,
+          "totalSeconds": 16.185429267000004,
+          "meanMs": 1618.5429267000004
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 10.0,
+          "totalSeconds": 11.179351995000001,
+          "meanMs": 1117.9351995000002
+        }
+      },
+      "captureSecondsIncludingDrain": 2.7660882039999706,
+      "queueAfterDrain": {
+        "activeWorkers": 0,
+        "poolSize": 2,
+        "queueDepth": 0,
+        "completedTasks": 33,
+        "rejectedTasks": 140,
+        "failedTasks": 0,
+        "lastCompleted": {
+          "fingerprint": 1292498,
+          "queueWaitMs": 2086.190021,
+          "completionMs": 2477.000025
+        }
+      },
+      "newRejections": 70.0
+    },
+    {
+      "scenario": "work-queue",
+      "implementation": "solution",
+      "run": "3",
+      "http": {
+        "method": "POST",
+        "path": "/api/v1/concurrency/work-queue/solution",
+        "requests": 80,
+        "concurrency": 40,
+        "durationSeconds": 0.3891,
+        "successful": 10,
+        "failedOrRejected": 70,
+        "statuses": {
+          "202": 10,
+          "503": 70
+        },
+        "responsesPerSecond": 205.6,
+        "successfulResponsesPerSecond": 25.7,
+        "latencyMs": {
+          "mean": 10.471,
+          "p50": 7.898,
+          "p95": 28.898,
+          "p99": 39.361,
+          "min": 1.237,
+          "max": 39.361
+        },
+        "distinctSuccessfulResults": []
+      },
+      "sampleCount": 19,
+      "peaks": {
+        "tomcat.threads.busy": 0.0,
+        "tomcat.threads.current": 10.0,
+        "tomcat.threads.config.max": 10.0,
+        "process.cpu.usage": 0.27368421052631575,
+        "system.cpu.usage": 0.9622641509433962,
+        "system.cpu.count": 8.0,
+        "hikaricp.connections.active": 0.0,
+        "hikaricp.connections.idle": 5.0,
+        "hikaricp.connections.pending": 0.0,
+        "hikaricp.connections.max": 5.0,
+        "demo.queue.active|violation": 0.0,
+        "demo.queue.active|solution": 2.0,
+        "demo.queue.depth|violation": 0.0,
+        "demo.queue.depth|solution": 8.0,
+        "demo.queue.completed|violation": 253.0,
+        "demo.queue.completed|solution": 43.0
+      },
+      "timerDeltas": {
+        "hikaricp.connections.acquire": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "hikaricp.connections.usage": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.completion|solution": {
+          "count": 10.0,
+          "totalSeconds": 15.441918661999999,
+          "meanMs": 1544.1918661999998
+        },
+        "demo.queue.waiting|violation": {
+          "count": 0.0,
+          "totalSeconds": 0.0,
+          "meanMs": null
+        },
+        "demo.queue.waiting|solution": {
+          "count": 10.0,
+          "totalSeconds": 10.773554529000002,
+          "meanMs": 1077.3554529000003
+        }
+      },
+      "captureSecondsIncludingDrain": 2.599619775000974,
+      "queueAfterDrain": {
+        "activeWorkers": 0,
+        "poolSize": 2,
+        "queueDepth": 0,
+        "completedTasks": 43,
+        "rejectedTasks": 210,
+        "failedTasks": 0,
+        "lastCompleted": {
+          "fingerprint": 1292498,
+          "queueWaitMs": 1928.508722,
+          "completionMs": 2355.310709
+        }
+      },
+      "newRejections": 70.0
+    }
+  ],
+  "profiling": {
+    "recordingSeconds": 30,
+    "settings": "profile",
+    "executionSamples": 1721,
+    "samplesContainingRiskCalculationViolation": 1720,
+    "servletWorkersInProviderDump": 10,
+    "virtualTasksInProviderTransactionDump": 5,
+    "virtualTasksInHikariAcquisitionDump": 35,
+    "recordingCommitted": false,
+    "missionControlGuiExecuted": false
+  }
+}
