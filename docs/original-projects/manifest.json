@@ -1,0 +1,470 @@
+{
+  "sourceProject": "api-saturation-bottlenecks",
+  "sourceCommit": "d69377a9cc9b171ac507a25d0821c50468c46127",
+  "destinationProject": "spring-api-concurrency-bottlenecks",
+  "destinationCommitBeforeMerge": "b09ed33c72bcd3af8f0bf2811febdadd609d45e2",
+  "sourceFiles": [
+    {
+      "path": ".gitignore",
+      "sha256": "85f1a70a91e005865e686327fb9917bfdefe4399deff75776720095934e9cb33",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/.gitignore",
+      "integratedPath": ".gitignore",
+      "integrationNote": "Identical shared file reused."
+    },
+    {
+      "path": ".mvn/wrapper/maven-wrapper.properties",
+      "sha256": "488e1b3f2e641779d4636abf9390845f901e64607261bc3c0b0bfe4fe96e6706",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/.mvn/wrapper/maven-wrapper.properties",
+      "integratedPath": ".mvn/wrapper/maven-wrapper.properties",
+      "integrationNote": "Identical shared file reused."
+    },
+    {
+      "path": "README.md",
+      "sha256": "4a179722a1d68dbecbf8a4895b226729feb54c87e1365c9ac67a160033803c8e",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/README.md",
+      "integratedPath": "docs/api-saturation-bottlenecks/README.md",
+      "integrationNote": "Complete guide retained; merged startup, paths, and evidence provenance updated."
+    },
+    {
+      "path": "docs/cpu-profile.json",
+      "sha256": "672980b096db91ae7590961a1041c93182aca0c7c85a92060744d1906e312cf6",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/docs/cpu-profile.json",
+      "integratedPath": "docs/api-saturation-bottlenecks/cpu-profile.json",
+      "integrationNote": "Copied unchanged; separate from concurrency measurements."
+    },
+    {
+      "path": "docs/lock-thread-dump.txt",
+      "sha256": "c5ac52255c7a0857d07dac8fb0a4e9bf0b026c81491ec3cf3618a030664b8895",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/docs/lock-thread-dump.txt",
+      "integratedPath": "docs/api-saturation-bottlenecks/lock-thread-dump.txt",
+      "integrationNote": "Copied unchanged; separate from concurrency measurements."
+    },
+    {
+      "path": "docs/measurements.json",
+      "sha256": "85de41403af5441357c15502b8a74fdfbbe79b42cb36e4c89f7d26f460703f74",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/docs/measurements.json",
+      "integratedPath": "docs/api-saturation-bottlenecks/measurements.json",
+      "integrationNote": "Copied unchanged; separate from concurrency measurements."
+    },
+    {
+      "path": "docs/metric-names.json",
+      "sha256": "00c445ab5569e52ae938b8378f909a9bb4c043ac500f2c23920f049a54dba8f7",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/docs/metric-names.json",
+      "integratedPath": "docs/api-saturation-bottlenecks/metric-names.json",
+      "integrationNote": "Copied unchanged; separate from concurrency measurements."
+    },
+    {
+      "path": "mvnw",
+      "sha256": "cae96cef89ebea3531221f4ae17c23cf8edf67d00eae8306d4186ae1bbed4d02",
+      "executable": true,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/mvnw",
+      "integratedPath": "mvnw",
+      "integrationNote": "Identical shared file reused."
+    },
+    {
+      "path": "mvnw.cmd",
+      "sha256": "46eedb8419bd14fe70d5bb2916d7b6f51806e51b39d5b76a42610384ca929c1c",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/mvnw.cmd",
+      "integratedPath": "mvnw.cmd",
+      "integrationNote": "Identical shared file reused."
+    },
+    {
+      "path": "pom.xml",
+      "sha256": "25f1a5b3ad51a69ca6608a69dacee17477a10ff33a303482361c7ee21e902d55",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/pom.xml",
+      "integratedPath": "pom.xml",
+      "integrationNote": "Destination project identity retained; original source file archived unchanged."
+    },
+    {
+      "path": "scripts/run-load.sh",
+      "sha256": "7c89212136ab01a69e256caf83dce2f9523ea5f012851f4181ded285d4c47e08",
+      "executable": true,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/scripts/run-load.sh",
+      "integratedPath": "scripts/run-load.sh",
+      "integrationNote": "Copied unchanged; command interface retained."
+    },
+    {
+      "path": "scripts/transfer.json",
+      "sha256": "db3537d85300ae9e4553c61aa6e62459f630347ea410ee3e2c8556d271731b2b",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/scripts/transfer.json",
+      "integratedPath": "scripts/transfer.json",
+      "integrationNote": "Copied unchanged; command interface retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/ApiSaturationApplication.java",
+      "sha256": "525b2d14f225044ce8b7667c2b4bb9a17ba05d887fc11d0397a816d37cca6291",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/ApiSaturationApplication.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/ApiSaturationApplication.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/config/ExecutorConfiguration.java",
+      "sha256": "9db1a7aa42e8aa9bc3a0c091364674a3af3241904d63ccf17b3266f1351752be",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/config/ExecutorConfiguration.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/config/ExecutorConfiguration.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/controller/ConnectionPoolController.java",
+      "sha256": "db4979f8220adce6bda26d628dd5579f4300f41233a4843701044db309dbd081",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/controller/ConnectionPoolController.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/controller/ConnectionPoolController.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/controller/CpuController.java",
+      "sha256": "d32070fa471d5165ae7d774e6672e4627aaf39827b87271c4095f004341270c0",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/controller/CpuController.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/controller/CpuController.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/controller/LockContentionController.java",
+      "sha256": "f38df2af7b193dfdf43a22e1fcd922e9baa5d2d7a1e2b3a8b96e6909f422fe0e",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/controller/LockContentionController.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/controller/LockContentionController.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/controller/ThreadPoolController.java",
+      "sha256": "b678dea368d3c0de564d9291a6787a6b2d9bb89d90ffc918d9b914df30dd51f0",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/controller/ThreadPoolController.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/controller/ThreadPoolController.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/dto/DuplicateRequest.java",
+      "sha256": "d817be5c70fa15c3521688923bb19a1bd80b60b9c1d1c14589789e49c1aada1f",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/dto/DuplicateRequest.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/dto/DuplicateRequest.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/dto/DuplicateResult.java",
+      "sha256": "5edbe458c31b082c2cfbeec33d01253d287f536b4f8d4173f21cac6bdaa1403c",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/dto/DuplicateResult.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/dto/DuplicateResult.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/dto/TransferRequest.java",
+      "sha256": "047c88dcf7d57c587dd951620016473f9c4b63a820860d561d314145a8ca6197",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/dto/TransferRequest.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/dto/TransferRequest.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/dto/TransferResult.java",
+      "sha256": "5a57baf99f2d258aa0710aa9fbd8a9fa7cdb62dc172df3512c214a524210afd3",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/dto/TransferResult.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/dto/TransferResult.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/entity/Account.java",
+      "sha256": "f513f0865977d951456744125f05e87cd530aafbed2602454ee62d7d139f0401",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/entity/Account.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/entity/Account.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/entity/Transfer.java",
+      "sha256": "0f855e2c092da926e3df306eb83bc307a9b51a8c510dc73854755cb556e7b5ba",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/entity/Transfer.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/entity/Transfer.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/repository/AccountRepository.java",
+      "sha256": "fa62c99023b572201a3e0ed112d4e57c06ef70e70948ebae5b3812273c9db841",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/repository/AccountRepository.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/repository/AccountRepository.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/repository/TransferRepository.java",
+      "sha256": "969c93ff1e45ff9046589175af88e44f0cf6ca0254a93c7e97575eeab6cfba0b",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/repository/TransferRepository.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/repository/TransferRepository.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/SimulatedExternalIo.java",
+      "sha256": "0b0a7113f43118e46f3215d31ba4771925e78d0073de2343f7e4fe9fa240facb",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/SimulatedExternalIo.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/SimulatedExternalIo.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/cpu/CpuBottleneckSolutionService.java",
+      "sha256": "b22096395ccbf6fb1857473951622599ef8688e3ac00099d2455ab5b449bf079",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/cpu/CpuBottleneckSolutionService.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/cpu/CpuBottleneckSolutionService.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/cpu/CpuBottleneckViolationService.java",
+      "sha256": "3b0ae0300209316c9de4883f0cefe0d2de3ee3214895d87630720790d0be0006",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/cpu/CpuBottleneckViolationService.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/cpu/CpuBottleneckViolationService.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/dbpool/ConnectionPoolSolutionService.java",
+      "sha256": "32cedf3705a3236a6fabca57a58c83b1861eb59bc7a7c3e8ccc37aab6a8d246c",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/dbpool/ConnectionPoolSolutionService.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/dbpool/ConnectionPoolSolutionService.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/dbpool/ConnectionPoolViolationService.java",
+      "sha256": "a07599803e386fefcf9d97a0ed9e710c65186140fdae9acece1c71d30f303eb2",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/dbpool/ConnectionPoolViolationService.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/dbpool/ConnectionPoolViolationService.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/dbpool/TransferPersistenceService.java",
+      "sha256": "5916f9c40bd30195a1ccc7ec840b1a613065b290ed854e47a84a0d7b414675fc",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/dbpool/TransferPersistenceService.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/dbpool/TransferPersistenceService.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/locking/LockContentionSolutionService.java",
+      "sha256": "6cc53511f27e21e3266a54ab8eebcda2f6d0ffa329145ec9132de9902f2d3383",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/locking/LockContentionSolutionService.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/locking/LockContentionSolutionService.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/locking/LockContentionViolationService.java",
+      "sha256": "75bd53cb823f4353dd112e8f1012544418e34582a1d823f44e3003ffdae9dba5",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/locking/LockContentionViolationService.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/locking/LockContentionViolationService.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/threadpool/BlockingTransferSolutionService.java",
+      "sha256": "e76b7d03bca0d35398e63fc8c8e673da4ddff9544f5dd84c99e9029baac07f8e",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/threadpool/BlockingTransferSolutionService.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/threadpool/BlockingTransferSolutionService.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/java/com/example/apisaturation/service/threadpool/BlockingTransferViolationService.java",
+      "sha256": "1e8ff67674555a324dea02d552c3f2a760bf14bb39bb75a4d99ee22aa3268184",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/java/com/example/apisaturation/service/threadpool/BlockingTransferViolationService.java",
+      "integratedPath": "src/main/java/com/example/apisaturation/service/threadpool/BlockingTransferViolationService.java",
+      "integrationNote": "Integrated; original package/path retained."
+    },
+    {
+      "path": "src/main/resources/application.properties",
+      "sha256": "3aec4d0792f851e6f7bb3a56ccd4df951f8336d2b6cd05f2d47c9db6ec1199c2",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/resources/application.properties",
+      "integratedPath": "src/main/resources/application.yml",
+      "integrationNote": "Settings consolidated; existing project name/database retained and thread dumps/SQL initialization enabled."
+    },
+    {
+      "path": "src/main/resources/data.sql",
+      "sha256": "56e2378157f25f57888fa188901b9b0943ae2ac8a4979fbd22372daada489f2d",
+      "executable": false,
+      "archivedPath": "docs/original-projects/api-saturation-bottlenecks/src/main/resources/data.sql",
+      "integratedPath": "src/main/resources/data.sql",
+      "integrationNote": "All six accounts retained; inserts target the separate saturation_account table."
+    }
+  ],
+  "destinationFilesBeforeMerge": [
+    {
+      "path": ".gitignore",
+      "sha256": "85f1a70a91e005865e686327fb9917bfdefe4399deff75776720095934e9cb33"
+    },
+    {
+      "path": ".mvn/wrapper/maven-wrapper.properties",
+      "sha256": "488e1b3f2e641779d4636abf9390845f901e64607261bc3c0b0bfe4fe96e6706"
+    },
+    {
+      "path": "README.md",
+      "sha256": "53b9037d633f22354bcd7d57de0802c11bef85ef2879abdce6b6e8e1e89f873c"
+    },
+    {
+      "path": "docs/measurements.json",
+      "sha256": "9da844cf4e0e67010cdf9936b0152bf10c694ca57fd2f8eddcf7c73870a00dd6"
+    },
+    {
+      "path": "mvnw",
+      "sha256": "cae96cef89ebea3531221f4ae17c23cf8edf67d00eae8306d4186ae1bbed4d02"
+    },
+    {
+      "path": "mvnw.cmd",
+      "sha256": "46eedb8419bd14fe70d5bb2916d7b6f51806e51b39d5b76a42610384ca929c1c"
+    },
+    {
+      "path": "pom.xml",
+      "sha256": "e3f719132ecc45437d3734a229c62b7a7e5ce1d41c89f511d8a828a31610ffcb"
+    },
+    {
+      "path": "scripts/capture.py",
+      "sha256": "778302d5d28d0eff60d5a22457bbb690696c476b7dce26e8e32c785ec03ca337"
+    },
+    {
+      "path": "scripts/load.sh",
+      "sha256": "1278c7522e0162c2d42f08bb04d631d561eeccbaeb080518a79d3e360c8240a7"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/ConcurrencyBottlenecksApplication.java",
+      "sha256": "62c4b9aa0f043d95cfdd53de6097e3e915bad11c0cfdc7110d560d4a54b91986"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/config/DemoDataInitializer.java",
+      "sha256": "681fa85e313ca36693d46d50a8738e40713027830153044b969187180d7015b4"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/config/ExecutorConfiguration.java",
+      "sha256": "7113ca462a7525147f0d7b43f8ba72ebc30670002a9ba7d66b9860958693439d"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/config/WorkQueueConfiguration.java",
+      "sha256": "752fc4a66fce923765206914068c3fb65dcb1b8eec659983568cb3a0994fd044"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/controller/CapacityExceptionHandler.java",
+      "sha256": "9d841fa43858cc1c1759d7bdc6547c42b95d37cd70a3e7e816ee5e5512a40696"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/controller/ConnectionPoolController.java",
+      "sha256": "70e4dd2d8431f7dbc808988f95e9a4b45a71928c159b50d3dc9750ab7b40c285"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/controller/CpuController.java",
+      "sha256": "a08179a1657c6c766a489a4d48db6e8b8220b42c6323ac17b35121bf3696b2b6"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/controller/RequestThreadController.java",
+      "sha256": "2e101cd37263cc2be3295bb143ba5a255930f591869597cc098e1aa2022a4a63"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/controller/WorkQueueController.java",
+      "sha256": "4a1f42513a1bf6edf581cd5bb20373ad1e64f63354f03c0b8c3b09ae582dc473"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/diagnostics/JobQueue.java",
+      "sha256": "4fc72f0b039efb9aad8a87e38c00bc4740d9e076f7828c3315464902557545c5"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/dto/AuthorizationResult.java",
+      "sha256": "a3b91f487f82aef20472c21b5363ac160be799200228d2a40c8b74ef5ce60166"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/dto/RiskResult.java",
+      "sha256": "f09c0f3303c9db543ccf453ff82195e3d271fff526c923ff40332604125b05f1"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/dto/ScenarioResponse.java",
+      "sha256": "bd274614038f3324d7ce5160cbc0a5bba059ca39d6675bc4a2959fef3a975917"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/entity/Account.java",
+      "sha256": "9c24b4508cda9ab5e70f2dbc5af2cd9ea3694fc6cfe87953df7938ecf12a0c66"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/entity/Transfer.java",
+      "sha256": "de25826a64cef7e5eb93e8d520b89c29d40f338ea2d95d2c48da5c3efad9e124"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/repository/AccountRepository.java",
+      "sha256": "b443bcebf1bd126f980de019c2c6135aaebff466326615df52e8057eb17e8c99"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/repository/TransferRepository.java",
+      "sha256": "00e43ff784a9bb07f977102294b21167133ca3bb1ef226030abd93a9b9d31bec"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/AccountAuthorizationService.java",
+      "sha256": "0ea33481314e559e5cf2e9c0e1cb28f12d0493c5f260dbfc4b4d30dc0b9075f7"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/MockFraudProvider.java",
+      "sha256": "9b1dcb1ebb3ccaee3af90df8f425a5a1a66730be034b0cb5c7022343be191a4c"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/RiskHistory.java",
+      "sha256": "d1458c1838f434cc2d08418cebf22d2e58a482a8f39df4f10efa43dc12e1111e"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/SecondaryRiskEvaluationService.java",
+      "sha256": "ba753f74e726ec040d88241a29e5846cf135553929abe8e186f31a4698a10bed"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/solution/BoundedQueueSolutionService.java",
+      "sha256": "c861182804237806db0ddb1ae57c21a8a2322f95fb9713e4ea8e9515c5f7f335"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/solution/RiskCalculationSolutionService.java",
+      "sha256": "86fe55e13a1b95e2c7610fd49207c2a48a81d67b7d019e09a1434ed1743c6edf"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/solution/ShortTransactionSolutionService.java",
+      "sha256": "d85ff44698d0b20eb1c844ad9a1d095fe8fda7e9adb8d9d605d83a845a542f99"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/solution/VirtualThreadFraudCheckSolutionService.java",
+      "sha256": "051fd85ffe611cebc51611c44f39a7890d4c8f8458dc557507578546c42c04ad"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/violation/BlockingFraudCheckViolationService.java",
+      "sha256": "bc00d56794b006dcb962f0177de3dc8e89d2374231f74721c1709d33424c7f5f"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/violation/ConnectionPoolViolationService.java",
+      "sha256": "d4a27976b3bc8c43c566ca59a2ffb9a97059bbc038eb10f916e22e26a03ff532"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/violation/RiskCalculationViolationService.java",
+      "sha256": "925eab85f1ca69694aeeba6c5283033df5a85831b79e3566b1e7b86d7351f8ed"
+    },
+    {
+      "path": "src/main/java/com/example/concurrencybottlenecks/service/violation/UnboundedQueueViolationService.java",
+      "sha256": "2f2bb9044dc9542b4fcb0944012ef1c24e436bd65a9f6433c6acc903a8b6b5a7"
+    },
+    {
+      "path": "src/main/resources/application.yml",
+      "sha256": "1e50f8d1eede5e0a081e4c9617348c7e0f346da775b4e672995935afa404788c"
+    }
+  ]
+}

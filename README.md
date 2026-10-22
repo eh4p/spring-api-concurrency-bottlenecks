@@ -2,7 +2,21 @@
 
 > A focused Spring Boot laboratory demonstrating how finite backend resources saturate under concurrent traffic and how to identify the real limiting resource.
 
-**The implementations under the `violation` package intentionally contain concurrency and capacity anti-patterns so their behavior can be compared with corrected implementations. They are educational examples and should not be copied into production systems.**
+**The violation implementations intentionally contain concurrency and capacity anti-patterns so their behavior can be compared with corrected implementations. They are educational examples and should not be copied into production systems.**
+
+This project combines the original concurrency lab and API Saturation Bottlenecks into **one runnable application**, preserving all **eight violation/solution comparisons (16 implementation endpoints)** across **five bottleneck categories**. Existing URLs and response bodies from both projects remain available.
+
+| Comparison | Existing concurrency cases | Imported transfer-assessment cases |
+|---|---|---|
+| Request workers | One 250 ms call: servlet worker vs async virtual task | Three 300 ms calls: sequential servlet execution vs parallel virtual tasks |
+| Database pool | Long vs short authorization transaction; updates a seeded account | Long vs short assessment transaction; appends a transfer record |
+| CPU | Seeded history: pairwise matching vs frequency map | Submitted references: nested scanning vs HashSet |
+| Background queue | Unbounded queue vs bounded queue with 503 rejection | — |
+| Global lock | — | Shared synchronized state vs independent request-local state |
+
+The overlapping categories remain separate experiments because their inputs, calculations, and fixes differ. For `[A, A, A]`, the history algorithm counts **three matching pairs**, while the submitted-reference algorithm counts **two repeated occurrences**.
+
+The original concurrency scenarios are documented below. The [transfer-assessment guide](docs/api-saturation-bottlenecks/README.md) retains the other project's full explanations, payloads, load commands, diagnostic evidence, and measurement tables, adapted to this application. The [preservation inventory](docs/original-projects/README.md) links both unchanged original READMEs and accounts for every imported file.
 
 ## The Problem
 
@@ -10,7 +24,7 @@
 
 The API is fast when tested manually, but response time increases dramatically when many requests arrive simultaneously. A fictional transfer authorization API makes this visible without a full banking system. All accounts and transfers are deterministic fake data.
 
-**Under concurrency, performance is usually constrained by the first finite resource that becomes saturated.** Candidates include request threads, database connections, CPU cores, worker queues, downstream capacity, the database itself, network, and memory. This laboratory implements exactly the first four comparisons.
+**Under concurrency, performance is usually constrained by the first finite resource that becomes saturated.** Candidates include request threads, database connections, CPU cores, worker queues, application locks, downstream capacity, the database itself, network, and memory. This laboratory demonstrates the first five categories through eight comparisons.
 
 ## Run Locally
 
@@ -22,15 +36,18 @@ Requirements: **JDK 25**, Bash, curl, and Python 3 for the small diagnostic scri
 ./mvnw spring-boot:run
 ```
 
-Expected version lines: `Apache Maven 3.9.16` and `Java version: 25...`. Startup seeds 100 accounts and 10,000 transfers into embedded H2. There are 5,000 distinct transfer references, each occurring twice, so both CPU algorithms must return **5,000 duplicate pairs**. H2 resets on restart. Wait for startup and `/actuator/health` to report `UP` before sending load.
+Expected version lines: `Apache Maven 3.9.16` and `Java version: 25...`. Startup seeds 100 accounts and 10,000 transfers into embedded H2 for the concurrency cases. There are 5,000 distinct transfer references, each occurring twice, so both history-based CPU algorithms must return **5,000 duplicate pairs**. It also seeds six USD/EUR/GBP accounts for transfer assessment. The two datasets use separate tables in the same five-connection pool. H2 resets on restart. Wait for startup and `/actuator/health` to report `UP` before sending load.
 
 The Maven plugin disables `optimizedLaunch`, which otherwise limits `spring-boot:run` to tier-1 compilation for fast startup. Normal tiered JIT compilation and warmup are essential for a useful CPU comparison.
 
-The API binds to `127.0.0.1:8080`. Actuator binds to `127.0.0.1:8081`, exposing only health and metrics. The separate management connector lets us measure saturation without waiting for an API servlet worker. Both ports must be free. Stop with Ctrl+C; Spring closes all three application executors, draining accepted queue work.
+The API binds to `127.0.0.1:8080`. Actuator binds to `127.0.0.1:8081`, exposing health, metrics, and thread dumps. The separate management connector lets us measure saturation without waiting for an API servlet worker. Both ports must be free. Stop with Ctrl+C; Spring closes the shared virtual executor, the lock-comparison executor, and both job executors, draining accepted queue work.
+
+Start only `ConcurrencyBottlenecksApplication`, using the root Maven Wrapper or `java -jar target/spring-api-concurrency-bottlenecks-1.0.0.jar` after building. `ApiSaturationApplication` now imports its scenarios as Spring configuration; it is not a second application to launch. The archived projects are preservation copies, outside the root Maven source/resource directories.
 
 ```bash
 curl -sS http://127.0.0.1:8081/actuator/health
 curl -sS http://127.0.0.1:8081/actuator/metrics
+curl -sS http://127.0.0.1:8081/actuator/threaddump
 ```
 
 ## Architecture and Resource Bottleneck Map
@@ -50,13 +67,19 @@ flowchart TD
     C --> K[Secondary job submission]
     K --> L[Unbounded queue: 2 platform workers]
     K --> M[Bounded queue: 2 workers + 8 waiting jobs]
+    C --> O[Transfer assessment: three 300 ms provider calls]
+    C --> P[Transfer assessment: long vs short DB transaction]
+    P --> G
+    C --> Q[Submitted references: nested scan vs HashSet]
+    C --> R[Lock comparison: 40 platform workers]
+    R --> S[Shared monitor vs request-local state]
     N[Actuator on separate local connector] -. observes .-> B
     N -. observes .-> G
     N -. observes .-> I
     N -. observes .-> K
 ```
 
-H2 produces the startup snapshot consumed by the CPU and queue scenarios. Those scenarios make **no database calls per request/job**, isolating CPU and worker capacity. Only the DB scenario uses JPA at request time. The request-thread scenario uses no database or CPU calculation. The mock provider is the **only sleeping application code**: its deterministic 250 ms wait represents network/TLS/remote-service waiting, not CPU processing.
+H2 produces the startup snapshot consumed by the history-based CPU and queue scenarios. Those scenarios make **no database calls per request/job**, isolating CPU and worker capacity. Only the two DB comparisons use JPA at request time. The request-thread comparisons use no database. `MockFraudProvider` supplies a deterministic 250 ms wait for the concurrency cases; `SimulatedExternalIo` supplies 300 ms per call for transfer assessment. These are the only sleeping application components, representing network/TLS/remote-service waiting, not CPU processing.
 
 All reduced capacities are **demo configuration only — not production sizing guidance**. Spring's global virtual-thread switch stays disabled so the synchronous violation really uses platform servlet workers. The corrected endpoint releases the servlet worker with `WebAsyncTask`, then executes the same blocking mock on a managed virtual task. The DB and CPU pairs use that identical async execution mechanism on both sides so servlet scarcity does not hide their intended resource constraint.
 
@@ -66,6 +89,9 @@ All reduced capacities are **demo configuration only — not production sizing g
 | DB connections | Transaction spans external I/O | Acquisition waits | Hikari active=max, pending>0 | Narrow transaction |
 | CPU | Repeated pairwise reference scanning | CPU pressure and rising latency | CPU metrics + JFR hotspot | Hash-based frequency lookup |
 | Worker queue | Unbounded acceptance | Backlog and completion delay grow | Queue depth and waiting timer | Bounded queue + explicit rejection |
+| Global lock | Shared scratch state protected across provider I/O | Independent requests serialize | BLOCKED threads on one monitor | Request-local state without a global monitor |
+
+Both endpoint families share the ten servlet workers, five Hikari connections, and virtual executor. Both lock versions use the same separate 40-worker platform executor so monitor ownership remains visible. Run comparisons one at a time; simultaneous scenarios compete for these shared resources and invalidate an isolated comparison.
 
 ## Investigation Workflow
 
@@ -82,6 +108,8 @@ flowchart TD
 ```
 
 ## Before vs After: Actual Local Measurements
+
+The measurements in this section were recorded for the **original standalone concurrency project before the merge**. The imported project's separate [measurements](docs/api-saturation-bottlenecks/measurements.json) and [comparison table](docs/api-saturation-bottlenecks/README.md#actual-local-measurements) are preserved too. They use different payloads, delays, request counts, and concurrency; do not combine the two datasets into one benchmark. The merged application has not been remeasured.
 
 Recorded **8 October 2026**, Linux x86_64, Oracle JDK 25.0.4.1, Maven 3.9.16, Spring Boot 4.1.1, Tomcat 11.0.24, H2 2.4.240, **8 processors reported by the JVM**. Normal tiered compilation enabled. Each implementation received ten warmup requests, then three sequential baseline requests. Each pair then received **three attempts of 80 requests at concurrency 40**, with identical data. Runs were sequential, and queue runs fully drained before the next run. The shell process startup, curl connection overhead, machine load, and diagnostic polling are included.
 
@@ -143,7 +171,7 @@ A separate, verified 30-second `settings=profile` JFR recording collected **1721
 
 ## Endpoints and Reproduction Matrix
 
-No request body is required. DB requests optionally accept `accountId=1` through `100`; default is `1`.
+For the original `/api/v1/concurrency` endpoints, no request body is required. DB requests optionally accept `accountId=1` through `100`; default is `1`.
 
 | Method | Path suffix under `/api/v1/concurrency` | Single request | Concurrent load | Expected evidence |
 |---|---|---|---|---|
@@ -153,7 +181,7 @@ No request body is required. DB requests optionally accept `accountId=1` through
 | POST | `/work-queue/{violation,solution}` | HTTP 202 + job ID | Accept everything vs bounded admission | Growing depth vs 503 rejections |
 | GET | `/work-queue/metrics` | Both queue snapshots | Active/depth/completed/rejected/failed | Latest completed job timing + fingerprint |
 
-Call **all eight implementations**:
+Call **all eight original concurrency implementations**:
 
 ```bash
 curl -sS http://127.0.0.1:8080/api/v1/concurrency/request-threads/violation
@@ -192,6 +220,45 @@ curl -sS http://127.0.0.1:8080/api/v1/concurrency/work-queue/metrics
 ```
 
 DB load rotates across the seeded accounts to avoid creating an accidental same-row lock bottleneck. Use count `1`, concurrency `1` for a baseline. Warm each endpoint several times, use the same dataset/count/concurrency for each pair, repeat at least three times, and run scenarios separately. CPU and queue runs can be slower on smaller laptops; keep workloads finite. Do not continuously flood the intentional unbounded queue.
+
+### Imported transfer-assessment endpoints
+
+All eight endpoints below use **POST** and JSON. Transfer cases use [scripts/transfer.json](scripts/transfer.json); the CPU pair accepts a `transactionReferences` array. Full validation rules, response examples, large CPU payload generation, and all eight load commands are in the [transfer-assessment guide](docs/api-saturation-bottlenecks/README.md#api-reference).
+
+| Path under `/api/bottlenecks` | Body | Violation vs solution |
+|---|---|---|
+| `/thread-pool/{violation,solution}` | Transfer | Sequential servlet I/O vs async parallel I/O |
+| `/db-pool/{violation,solution}` | Transfer | Provider wait inside vs outside the transaction |
+| `/lock-contention/{violation,solution}` | Transfer | Shared monitor vs request-local state |
+| `/cpu/{violation,solution}` | References | Nested duplicate scan vs HashSet |
+
+Call **all eight imported implementations**, in addition to the eight original calls above:
+
+```bash
+for scenario in thread-pool db-pool lock-contention; do
+  for version in violation solution; do
+    curl -sS --json @scripts/transfer.json \
+      "http://127.0.0.1:8080/api/bottlenecks/$scenario/$version"
+    echo
+  done
+done
+for version in violation solution; do
+  curl -sS --json '{"transactionReferences":["TX-10001","TX-10002","TX-10001"]}' \
+    "http://127.0.0.1:8080/api/bottlenecks/cpu/$version"
+  echo
+done
+```
+
+Use `scripts/load.sh` and `scripts/capture.py` for `/api/v1/concurrency` (GET/POST without JSON); use `scripts/run-load.sh` for `/api/bottlenecks` (POST with JSON). Both original load tools retain their interfaces:
+
+```bash
+./scripts/run-load.sh /api/bottlenecks/thread-pool/violation 40 20 scripts/transfer.json
+./scripts/run-load.sh /api/bottlenecks/thread-pool/solution 40 20 scripts/transfer.json
+./scripts/run-load.sh /api/bottlenecks/lock-contention/violation 40 20 scripts/transfer.json
+./scripts/run-load.sh /api/bottlenecks/lock-contention/solution 40 20 scripts/transfer.json
+```
+
+The transfer pairs return `riskScore: 12` and `status: "DEMO_ASSESSED"`. The CPU example returns `{"referenceCount":3,"repeatedReferences":1}`. These remain their original response formats; they do not use the concurrency endpoints' `ScenarioResponse` envelope.
 
 ## Bottleneck 1 — Servlet Request Thread Saturation
 
@@ -292,6 +359,14 @@ memory pressure possible             caller can retry with bounded backoff
 ```
 
 **When the system cannot safely process more work, controlled rejection is often healthier than accepting unlimited work and failing later.** Bounded queues bound pending memory and wait; they do not guarantee a particular completion deadline. Retry-After is advisory, and clients should use bounded retries with jitter.
+
+## Bottleneck 5 — Global Lock Contention
+
+The imported `LockContentionViolationService` stores per-request risk in a singleton field and synchronizes the whole assessment, including the 300 ms provider wait. Independent requests therefore queue for one monitor even when CPU and database connections are available. The solution stores the score in a local variable and removes the unnecessary monitor.
+
+Both versions run through the same 40-worker platform executor; use concurrency 20 to expose lock serialization without filling that executor first. During violation load, inspect `jcmd <PID> Thread.print` or `/actuator/threaddump` for one owner and multiple `BLOCKED` threads waiting on the same service monitor. A sleeping owner still holds the lock. The [preserved thread dump](docs/api-saturation-bottlenecks/lock-thread-dump.txt) shows this directly; the [full guide](docs/api-saturation-bottlenecks/README.md#scenario-c--global-lock-contention) explains the experiment and historical measurements.
+
+Replacing `synchronized` with another global lock would preserve serialization. The fix removes shared per-request state. This is a logical lock-contention experiment, not a virtual-thread pinning demonstration.
 
 ## Diagnostic Decision Tree
 
@@ -444,12 +519,13 @@ Normal load should have normal latency. Approaching capacity may increase latenc
 | Narrow transaction | Shorter connection hold, better pool availability | Business consistency across external work requires design |
 | Hash lookup | Less CPU work and better throughput | Additional memory for distinct references |
 | Bounded queue | Predictable backlog and controlled overload | Excess jobs are explicitly rejected |
+| Request-local risk state | Removes unnecessary global serialization | Appropriate only when the state belongs to one request |
 
 A real investigation may also use APM, dashboards, JVM/OS/database metrics, downstream timing, load-balancer metrics, distributed tracing, error rates, and p95/p99 latency. Production remedies may include rate limiting, load shedding, bulkheads, timeouts, circuit breakers, autoscaling, bounded retries, replicas, and caching. Each addresses a different constraint; apply them from evidence. None of those platforms or libraries is implemented here.
 
 ## How I Would Answer This in an Interview
 
-“I would look for saturation of finite shared resources. First I would reproduce the slowdown with controlled concurrent traffic and compare throughput and latency with servlet, Hikari, CPU, and queue metrics. Busy servlet workers require stack inspection: are they doing work or waiting? Active DB connections at the maximum with rising pending acquisitions point toward pool pressure or long transactions. High CPU needs JFR profiling; a growing work queue needs bounded admission. I would fix the constraint supported by those measurements, repeat the same workload, and check whether the bottleneck moved.”
+“I would look for saturation of finite shared resources. First I would reproduce the slowdown with controlled concurrent traffic and compare throughput and latency with servlet, Hikari, CPU, and queue metrics. Busy servlet workers require stack inspection: are they doing work or waiting? Active DB connections at the maximum with rising pending acquisitions point toward pool pressure or long transactions. Multiple threads BLOCKED on the same monitor point toward application lock contention. High CPU needs JFR profiling; a growing work queue needs bounded admission. I would fix the constraint supported by those measurements, repeat the same workload, and check whether the bottleneck moved.”
 
 ## What I Learned
 
@@ -458,6 +534,7 @@ A real investigation may also use APM, dashboards, JVM/OS/database metrics, down
 - Hold DB connections for the shortest practical time; blindly increasing pools can overload the database.
 - CPU work is bounded by CPU capacity; virtual threads help blocking workloads, not inefficient calculations.
 - Unbounded queues hide overload; controlled rejection is often safer than unlimited acceptance.
+- Shared per-request state and a broad monitor can serialize otherwise independent requests.
 - Fixing one bottleneck can reveal another; performance tuning should follow measurements.
 
 ## Project Structure
@@ -471,12 +548,31 @@ spring-api-concurrency-bottlenecks/
 ├── pom.xml
 ├── README.md
 ├── docs/
-│   └── measurements.json
+│   ├── measurements.json                 # Original concurrency evidence
+│   ├── api-saturation-bottlenecks/        # Full imported guide and diagnostic evidence
+│   └── original-projects/                # Original files, READMEs, and merge inventory
 ├── scripts/
 │   ├── capture.py
-│   └── load.sh
+│   ├── load.sh
+│   ├── run-load.sh
+│   └── transfer.json
 └── src/main/
-    ├── resources/application.yml
+    ├── resources/
+    │   ├── application.yml
+    │   └── data.sql
+    ├── java/com/example/apisaturation/
+    │   ├── ApiSaturationApplication.java  # Imported Spring configuration
+    │   ├── config/                       # Lock-comparison executor
+    │   ├── controller/                   # Four imported endpoint pairs
+    │   ├── dto/                          # Transfer/reference requests and results
+    │   ├── entity/                       # Separate assessment tables
+    │   ├── repository/
+    │   └── service/
+    │       ├── SimulatedExternalIo.java
+    │       ├── threadpool/
+    │       ├── dbpool/
+    │       ├── locking/
+    │       └── cpu/
     └── java/com/example/concurrencybottlenecks/
         ├── ConcurrencyBottlenecksApplication.java
         ├── config/
@@ -521,6 +617,8 @@ spring-api-concurrency-bottlenecks/
 The script-only Maven Wrapper needs no committed wrapper JAR. No `src/test`, frontend, deployment files, load-testing framework, or infrastructure is included.
 
 ## Verification Performed
+
+The following checks describe the original standalone concurrency project. The [imported guide](docs/api-saturation-bottlenecks/README.md#validation-scope) separately records validation of the original saturation project. **No build, lint, test, application startup, or load experiment has been run for the merged application.** Both original READMEs and the original diagnostic artifacts are retained without presenting their results as new merged-run evidence.
 
 - Maven Wrapper version and Java 25 verified; `./mvnw clean verify` passed with no compilation warnings.
 - `./mvnw spring-boot:run` started successfully; H2 seeding, both ports, health, and all eight implementation endpoints verified.

@@ -27,6 +27,7 @@ spring:
       connection-timeout: 5000
   jpa:
     open-in-view: false
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: create-drop
     properties:
@@ -34,6 +35,9 @@ spring:
         jdbc:
           batch_size: 100
         order_inserts: true
+  sql:
+    init:
+      mode: always
   mvc:
     async:
       request-timeout: 30s
@@ -45,4 +49,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,metrics
+        include: health,metrics,threaddump

@@ -1,0 +1,21 @@
+Actual jcmd Thread.print capture, 8 October 2026. Frames abbreviated; addresses are run-specific.
+
+"demo-lock-14" #366 [37190] daemon prio=5 os_prio=0 cpu=1.89ms elapsed=59.27s tid=0x000073cc4c003a00 nid=37190 sleeping [0x000073cc3bffe000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at com.example.apisaturation.service.SimulatedExternalIo.waitForProvider(SimulatedExternalIo.java:32)
+	at com.example.apisaturation.service.SimulatedExternalIo.lookupRisk(SimulatedExternalIo.java:24)
+	at com.example.apisaturation.service.locking.LockContentionViolationService.assess(LockContentionViolationService.java:19)
+	- locked <0x0000000709936570> (a com.example.apisaturation.service.locking.LockContentionViolationService)
+    ... remaining frames omitted ...
+
+"demo-lock-15" #367 [37192] daemon prio=5 os_prio=0 cpu=1.99ms elapsed=59.27s tid=0x000073cc68009a60 nid=37192 waiting for monitor entry  [0x000073cc3befe000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at com.example.apisaturation.service.locking.LockContentionViolationService.assess(LockContentionViolationService.java:19)
+	- waiting to lock <0x0000000709936570> (a com.example.apisaturation.service.locking.LockContentionViolationService)
+    ... remaining frames omitted ...
+
+"demo-lock-16" #368 [37198] daemon prio=5 os_prio=0 cpu=2.00ms elapsed=59.24s tid=0x000073cc600072a0 nid=37198 waiting for monitor entry  [0x000073cc3bdfe000]
+   java.lang.Thread.State: BLOCKED (on object monitor)
+	at com.example.apisaturation.service.locking.LockContentionViolationService.assess(LockContentionViolationService.java:19)
+	- waiting to lock <0x0000000709936570> (a com.example.apisaturation.service.locking.LockContentionViolationService)
+    ... remaining frames omitted ...

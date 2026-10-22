@@ -2,6 +2,7 @@ package com.example.concurrencybottlenecks.config;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.task.AsyncTaskExecutor;
 import org.springframework.core.task.support.TaskExecutorAdapter;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +16,7 @@ public class ExecutorConfiguration {
     }
 
     @Bean
-    public AsyncTaskExecutor virtualMvcExecutor(ExecutorService virtualIoExecutor) {
+    public AsyncTaskExecutor virtualMvcExecutor(@Qualifier("virtualIoExecutor") ExecutorService virtualIoExecutor) {
         return new TaskExecutorAdapter(virtualIoExecutor);
     }
 }

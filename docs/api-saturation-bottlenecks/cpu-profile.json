@@ -1,0 +1,6 @@
+{
+  "tool": "JFR settings=profile duration=30s",
+  "separateFromBenchmark": true,
+  "executionSamples": 4285,
+  "samplesWithViolationInStack": 4263
+}
